@@ -5,7 +5,7 @@ VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServer", "WebServer\WebServer.csproj", "{5A0E9136-078F-4945-AECD-0AD409C52CEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreCore", "Store\StoreCore.csproj", "{FE095341-D92D-4542-8434-FA69FC2B4E58}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreCore", "StoreCore\StoreCore.csproj", "{FE095341-D92D-4542-8434-FA69FC2B4E58}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

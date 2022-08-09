@@ -1,5 +1,4 @@
 ﻿using System;
-using StoreCore.Common;
 
 namespace StoreCore.Model
 {

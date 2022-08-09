@@ -1,0 +1,161 @@
+[
+  {
+    "Product": {
+      "Id": "e437d12c-7481-42a3-814b-5c7e6e0f8066",
+      "Name": "iPhone",
+      "Category": "Phone",
+      "Price": 15000.0
+    },
+    "Owner": null,
+    "Count": 8
+  },
+  {
+    "Product": {
+      "Id": "e437d12c-7481-42a3-814b-5c7e6e0f8063",
+      "Name": "Asus Tablet 810",
+      "Category": "Tablet",
+      "Price": 11000.0
+    },
+    "Owner": null,
+    "Count": 6
+  },
+  {
+    "Product": {
+      "Id": "b6639bf0-6db1-4d9c-a726-6f5381b799ec",
+      "Name": "Keyboard",
+      "Category": "Accessory",
+      "Price": 200.0
+    },
+    "Owner": {
+      "Login": "login",
+      "Password": "12345"
+    },
+    "Count": 1
+  },
+  {
+    "Product": {
+      "Id": "e437d12c-7481-42a3-814b-5c7e6e0f8064",
+      "Name": "Computer Mouse",
+      "Category": "Accessory",
+      "Price": 100.0
+    },
+    "Owner": null,
+    "Count": 2
+  },
+  {
+    "Product": {
+      "Id": "295f4925-91da-45d9-a7cc-9e5f1e54c9ac",
+      "Name": "Microsoft Lumia 650",
+      "Category": "Phone",
+      "Price": 17000.0
+    },
+    "Owner": {
+      "Login": "login",
+      "Password": "12345"
+    },
+    "Count": 1
+  },
+  {
+    "Product": {
+      "Id": "295f4925-91da-45d9-a7cc-9e5f1e54c9ad",
+      "Name": "Samsung Galaxy",
+      "Category": "Phone",
+      "Price": 16000.0
+    },
+    "Owner": null,
+    "Count": 9
+  },
+  {
+    "Product": {
+      "Id": "295f4925-91da-45d9-a7cc-9e5f1e54c9af",
+      "Name": "Mac mini",
+      "Category": "Computer",
+      "Price": 170000.0
+    },
+    "Owner": null,
+    "Count": 4
+  },
+  {
+    "Product": {
+      "Id": "724d1d3d-770d-4368-b4a9-857f599d2de9",
+      "Name": "Acer SPIN",
+      "Category": "Laptop",
+      "Price": 50000.0
+    },
+    "Owner": null,
+    "Count": 3
+  },
+  {
+    "Product": {
+      "Id": "08b5db24-3b85-4c87-b55a-b42edc0a8c89",
+      "Name": "ASUS ZenBook",
+      "Category": "Laptop",
+      "Price": 90000.0
+    },
+    "Owner": null,
+    "Count": 8
+  },
+  {
+    "Product": {
+      "Id": "ed392232-19c8-4de5-b013-37ccdfaa89d3",
+      "Name": "Lenovo Yoga",
+      "Category": "Laptop",
+      "Price": 60000.0
+    },
+    "Owner": null,
+    "Count": 2
+  },
+  {
+    "Product": {
+      "Id": "e437d12c-7481-42a3-814b-5c7e6e0f8061",
+      "Name": "Macbook Air",
+      "Category": "Laptop",
+      "Price": 150000.0
+    },
+    "Owner": null,
+    "Count": 8
+  },
+  {
+    "Product": {
+      "Id": "8499679b-97ef-429d-8fbf-7e0544060a5b",
+      "Name": "Microsoft Surface Book",
+      "Category": "Laptop",
+      "Price": 80000.0
+    },
+    "Owner": null,
+    "Count": 7
+  },
+  {
+    "Product": {
+      "Id": "e437d12c-7481-42a3-814b-5c7e6e0f8062",
+      "Name": "Macbook Pro",
+      "Category": "Laptop",
+      "Price": 200000.0
+    },
+    "Owner": null,
+    "Count": 4
+  },
+  {
+    "Product": {
+      "Id": "e437d12c-7481-42a3-814b-5c7e6e0f8065",
+      "Name": "HP Spectre",
+      "Category": "Laptop",
+      "Price": 80000.0
+    },
+    "Owner": null,
+    "Count": 5
+  },
+  {
+    "Product": {
+      "Id": "da3dc34a-331d-4afb-833f-c991414847bd",
+      "Name": "Dell XPS ",
+      "Category": "Laptop",
+      "Price": 70000.0
+    },
+    "Owner": {
+      "Login": "login",
+      "Password": "12345"
+    },
+    "Count": 1
+  }
+]

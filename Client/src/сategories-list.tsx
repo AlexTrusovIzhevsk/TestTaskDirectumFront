@@ -4,12 +4,13 @@ import { autobind } from 'core-decorators';
 
 import CategoryItem from './сategory-item';
 import { getCategories } from './api';
+import IBasketCategoryProps from './props/basket-category-props';
 
 require('./app.css');
 
 @autobind
-class CategoriesList extends React.Component<{ isBasket: boolean; onCategoryChange: (category: string) => void; onLeaveFromBasket: () => void}, {categories: Array<string>}> {
-  constructor(props: { isBasket: boolean; onCategoryChange: () => void; onLeaveFromBasket: () => void}) {
+class CategoriesList extends React.Component<IBasketCategoryProps, {categories: Array<string>}> {
+  constructor(props: IBasketCategoryProps) {
     super(props);
     const categories: Array<string> = [];
     this.state = { categories: categories };

@@ -2,11 +2,12 @@ import * as React from 'react';
 
 import ProductListMain from './product-list-main';
 import CategoriesList from './сategories-list';
+import IBasketProps from './props/basket-props';
 
 require('./app.css');
 
-class Main extends React.Component<{ isBasket: boolean; onLeaveFromBasket: () => void }, {category: string | null}> {
-  constructor(props: { isBasket: boolean; onLeaveFromBasket: () => void }) {
+class Main extends React.Component<IBasketProps, {category: string | null}> {
+  constructor(props: IBasketProps) {
     super(props);
     this.state = { category: null };
     this.onCategoryChange = this.onCategoryChange.bind(this);

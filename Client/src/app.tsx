@@ -3,11 +3,12 @@ import React from 'react';
 import Header from './header';
 import Main from './main';
 import Footer from './footer';
+import IBasketProps from './props/basket-props';
 
 require('./app.css');
 
-class App extends React.Component<{ isBasket: boolean; onGoToBasket: () => void; onLeaveFromBasket: () => void}, {isBasket: boolean}> {
-  constructor(props: { isBasket: boolean; onGoToBasket: () => void; onLeaveFromBasket: () => void}) {
+class App extends React.Component<IBasketProps, {isBasket: boolean}> {
+  constructor(props: IBasketProps) {
     super(props);
     this.state = { isBasket: false };
     this.onGoToBasket = this.onGoToBasket.bind(this);
@@ -23,7 +24,7 @@ class App extends React.Component<{ isBasket: boolean; onGoToBasket: () => void;
     return (
       <div>
         <Header isBasket={this.state.isBasket} onGoToBasket={this.onGoToBasket} onLeaveFromBasket={this.onLeaveFromBasket} />
-        <Main isBasket={this.state.isBasket} onLeaveFromBasket={this.onLeaveFromBasket} />
+        <Main isBasket={this.state.isBasket} onGoToBasket={this.onGoToBasket} onLeaveFromBasket={this.onLeaveFromBasket} />
         <Footer />
       </div>
     );

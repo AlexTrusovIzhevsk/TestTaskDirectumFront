@@ -1,11 +1,12 @@
 import React from 'react';
 
 import ProductList from './product-list';
+import IBasketCurrentCategoryProps from './props/basket-current-category-props';
 
 require('./app.css');
 
-class ProductListMain extends React.Component<{ isBasket: boolean; currentCategory: string | null }, {}> {
-  constructor(props: { isBasket: boolean; currentCategory: string | null }) {
+class ProductListMain extends React.Component<IBasketCurrentCategoryProps, {}> {
+  constructor(props: IBasketCurrentCategoryProps) {
     super(props);
     this.state = {};
   }

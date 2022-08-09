@@ -91,7 +91,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\StoreController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\BsketController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -118,7 +119,7 @@
     <Folder Include="Views\Account\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Store\StoreCore.csproj">
+    <ProjectReference Include="..\StoreCore\StoreCore.csproj">
       <Project>{fe095341-d92d-4542-8434-fa69fc2b4e58}</Project>
       <Name>StoreCore</Name>
     </ProjectReference>

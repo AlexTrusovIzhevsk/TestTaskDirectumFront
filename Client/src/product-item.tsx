@@ -7,13 +7,13 @@ import logoPhone from './logoPhone.png';
 import logoAccessory from './logoAccessory.png';
 
 import { addToBascet, removeFromBascet } from './api';
-import IProductInfo from './types/product-info';
+import IBasketProps from './props/basket-props';
 
 require('./app.css');
 
 @autobind
-class ProductItem extends React.Component<{ isBasket: boolean; value: IProductInfo; updateProducts: () => Promise<void>}, {}> {
-  constructor(props: { isBasket: boolean; value: IProductInfo; updateProducts: () => Promise<void>}) {
+class ProductItem extends React.Component<IBasketProps, {}> {
+  constructor(props: IBasketProps) {
     super(props);
     this.addToBascet = this.addToBascet.bind(this);
     this.removeFromBascet = this.removeFromBascet.bind(this);
@@ -42,6 +42,9 @@ class ProductItem extends React.Component<{ isBasket: boolean; value: IProductIn
         </div>
         <div>
           Цена: {this.props.value.Product.Price}
+        </div>
+        <div>
+          Количество: {this.props.value.Count}
         </div>
         <div>
           В корзине: {this.props.value.Owner ? this.props.value.Owner.Login : 'null'}

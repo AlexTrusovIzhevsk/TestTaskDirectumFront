@@ -1,11 +1,12 @@
 import React from 'react';
 
 import ThemControl from './them-control';
+import IBasketItemProps from './props/basket-item-props';
 
 require('./app.css');
 
-class HeaderControls extends React.Component<{ isBasket: boolean; onLeaveFromBasket: () => void; onGoToBasket: () => void}> {
-  constructor(props: { isBasket: boolean; onLeaveFromBasket: () => Promise<void>; onGoToBasket: () => Promise<void>}) {
+class HeaderControls extends React.Component<IBasketItemProps> {
+  constructor(props: IBasketItemProps) {
     super(props);
     this.onClick = this.onClick.bind(this);
   }

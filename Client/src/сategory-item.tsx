@@ -1,9 +1,11 @@
 import * as React from 'react';
 
+import IBasketCategoryItemProps from './props/basket-category-item-props';
+
 require('./app.css');
 
-class CategoryItem extends React.Component<{ isBasket: boolean; value: string ; onLeaveFromBasket: () => void; onCategoryChange: (Category: string) => void }, {}> {
-  constructor(props: { isBasket: boolean; value: string ; onLeaveFromBasket: () => void; onCategoryChange: (Category: string) => void }) {
+class CategoryItem extends React.Component<IBasketCategoryItemProps, {}> {
+  constructor(props: IBasketCategoryItemProps) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
   }

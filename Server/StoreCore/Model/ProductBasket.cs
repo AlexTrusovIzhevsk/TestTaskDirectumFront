@@ -1,6 +1,4 @@
-﻿using StoreCore.Common;
-
-namespace StoreCore.Model
+﻿namespace StoreCore.Model
 {
   public class ProductBasket
   {

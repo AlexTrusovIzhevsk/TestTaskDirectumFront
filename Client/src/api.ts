@@ -1,48 +1,31 @@
 import IProductInfo from './types/product-info';
 
 export async function getCategories(): Promise<Array<string>> {
-  const options = {
-    headers: { 'Content-Type': 'application/json' },
-    method: 'GET'
-  };
-  const response = await fetch('api/store/category', options);
-  if (response.status === 200) {
-    return await response.json();
-  }
-  throw new Error(`Error: ${response.statusText}`);
+  return apiFunk<Array<string>>('GET', 'api/category');
 }
 
 export async function getProductsByCategory(category: string): Promise<Array<IProductInfo>> {
-  const options = {
-    headers: { 'Content-Type': 'application/json' },
-    method: 'GET'
-  };
-  const response = await fetch(`api/store/category/${category}`, options);
-  if (response.status === 200) {
-    return await response.json();
-  }
-  throw new Error(`Error: ${response.statusText}`);
+  return apiFunk<Array<IProductInfo>>('GET', `api/category/list/${category}`);
 }
 
 export async function getUserBasket(): Promise<Array<IProductInfo>> {
-  const options = {
-    headers: { 'Content-Type': 'application/json' },
-    method: 'GET'
-  };
-  const uri: string = 'api/store/basket?login=login&password=12345';
-  const response = await fetch(uri, options);
-  if (response.status === 200) {
-    return await response.json();
-  }
-  throw new Error(`Error: ${response.statusText}`);
+  return apiFunk<Array<IProductInfo>>('GET', 'api/basket/list');
 }
 
 export async function addToBascet(id: string): Promise<void> {
+  return apiAction('PUT', `api/basket/addProductToBasket?productId=${id}&count=1`);
+}
+
+export async function removeFromBascet(id: string): Promise<void> {
+  return apiAction('DELETE', `api/basket/removeProductFromBasket?productId=${id}&count=1`);
+}
+
+async function apiAction(optionsMethod: string, uriServer: string): Promise<void> {
   const options = {
     headers: { 'Content-Type': 'application/json' },
-    method: 'PUT'
+    method: optionsMethod
   };
-  const uri: string = `api/store/productToBasket?login=login&password=12345&productId=${id}&count=1`;
+  const uri: string = uriServer;
   const response = await fetch(uri, options);
   if (response.status === 200) {
     return;
@@ -50,15 +33,15 @@ export async function addToBascet(id: string): Promise<void> {
   throw new Error(`Error: ${response.statusText}`);
 }
 
-export async function removeFromBascet(id: string): Promise<void> {
+async function apiFunk<T>(optionsMethod: string, uriServer: string): Promise<T> {
   const options = {
     headers: { 'Content-Type': 'application/json' },
-    method: 'PUT'
+    method: optionsMethod
   };
-  const uri: string = `api/store/productFromBasket?login=login&password=12345&productId=${id}&count=1`;
+  const uri: string = uriServer;
   const response = await fetch(uri, options);
   if (response.status === 200) {
-    return;
+    return await response.json();
   }
   throw new Error(`Error: ${response.statusText}`);
 }
