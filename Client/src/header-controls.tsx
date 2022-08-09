@@ -1,12 +1,12 @@
 import React from 'react';
 
 import ThemControl from './them-control';
-import IBasketItemProps from './props/basket-item-props';
+import IBasketContolHandler from './props/basket-item-props';
 
 require('./app.css');
 
-class HeaderControls extends React.Component<IBasketItemProps> {
-  constructor(props: IBasketItemProps) {
+class HeaderControls extends React.Component<IBasketContolHandler> {
+  constructor(props: IBasketContolHandler) {
     super(props);
     this.onClick = this.onClick.bind(this);
   }

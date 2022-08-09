@@ -3,12 +3,12 @@ import React from 'react';
 import Header from './header';
 import Main from './main';
 import Footer from './footer';
-import IBasketProps from './props/basket-props';
+import IProductItemProps from './props/basket-props';
 
 require('./app.css');
 
-class App extends React.Component<IBasketProps, {isBasket: boolean}> {
-  constructor(props: IBasketProps) {
+class App extends React.Component<IProductItemProps, {isBasket: boolean}> {
+  constructor(props: IProductItemProps) {
     super(props);
     this.state = { isBasket: false };
     this.onGoToBasket = this.onGoToBasket.bind(this);

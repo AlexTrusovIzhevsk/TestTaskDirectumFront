@@ -1,6 +1,6 @@
-import IBasketCategoryProps from './basket-category-props';
+import ICategoryChangeHandlerProps from './category-change-handler-props';
 
-interface IBasketCategoryItemProps extends IBasketCategoryProps {
+interface IBasketCategoryItemProps extends ICategoryChangeHandlerProps {
   value: string;
 }
 

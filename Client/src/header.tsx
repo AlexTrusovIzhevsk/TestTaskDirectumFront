@@ -1,13 +1,13 @@
 import React from 'react';
 
 import HeaderControls from './header-controls';
-import IBasketItemProps from './props/basket-item-props';
+import IBasketContolHandler from './props/basket-item-props';
 import storeLogo from './logo.png';
 
 require('./app.css');
 
-class Header extends React.Component<IBasketItemProps,{}> {
-  constructor(props: IBasketItemProps) {
+class Header extends React.Component<IBasketContolHandler,{}> {
+  constructor(props: IBasketContolHandler) {
     super(props);
     this.state = {};
   }

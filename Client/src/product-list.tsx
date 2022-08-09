@@ -4,13 +4,13 @@ import { autobind } from 'core-decorators';
 import { getProductsByCategory, getUserBasket } from './api';
 import ProductItem from './product-item';
 import IProductInfo from './types/product-info';
-import IBasketCurrentCategoryProps from './props/basket-current-category-props';
+import IIsBasketAndCurrentCategoryProps from './props/basket-current-category-props';
 
 require('./app.css');
 
 @autobind
-class ProductList extends React.Component<IBasketCurrentCategoryProps, { products: Array<IProductInfo> }> {
-  constructor(props: IBasketCurrentCategoryProps) {
+class ProductList extends React.Component<IIsBasketAndCurrentCategoryProps, { products: Array<IProductInfo> }> {
+  constructor(props: IIsBasketAndCurrentCategoryProps) {
     super(props);
     this.state = { products: [] };
     this.updateProducts = this.updateProducts.bind(this);

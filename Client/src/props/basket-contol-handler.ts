@@ -1,7 +1,7 @@
-interface IBasketItemProps{
+interface IBasketContolHandler{
   isBasket: boolean;
   onGoToBasket: () => void;
   onLeaveFromBasket: () => void;
 }
 
-export default IBasketItemProps;
+export default IBasketContolHandler;

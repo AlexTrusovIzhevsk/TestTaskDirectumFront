@@ -1,7 +1,7 @@
-interface IBasketCategoryProps{
+interface ICategoryChangeHandlerProps{
   isBasket: boolean;
   onCategoryChange: (category: string) => void;
   onLeaveFromBasket: () => void;
 }
 
-export default IBasketCategoryProps;
+export default ICategoryChangeHandlerProps;

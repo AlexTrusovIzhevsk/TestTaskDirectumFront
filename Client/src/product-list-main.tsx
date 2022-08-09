@@ -1,12 +1,12 @@
 import React from 'react';
 
 import ProductList from './product-list';
-import IBasketCurrentCategoryProps from './props/basket-current-category-props';
+import IIsBasketAndCurrentCategoryProps from './props/basket-current-category-props';
 
 require('./app.css');
 
-class ProductListMain extends React.Component<IBasketCurrentCategoryProps, {}> {
-  constructor(props: IBasketCurrentCategoryProps) {
+class ProductListMain extends React.Component<IIsBasketAndCurrentCategoryProps, {}> {
+  constructor(props: IIsBasketAndCurrentCategoryProps) {
     super(props);
     this.state = {};
   }

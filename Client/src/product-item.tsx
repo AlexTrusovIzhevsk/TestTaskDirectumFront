@@ -7,13 +7,13 @@ import logoPhone from './logoPhone.png';
 import logoAccessory from './logoAccessory.png';
 
 import { addToBascet, removeFromBascet } from './api';
-import IBasketProps from './props/basket-props';
+import IProductItemProps from './props/basket-props';
 
 require('./app.css');
 
 @autobind
-class ProductItem extends React.Component<IBasketProps, {}> {
-  constructor(props: IBasketProps) {
+class ProductItem extends React.Component<IProductItemProps, {}> {
+  constructor(props: IProductItemProps) {
     super(props);
     this.addToBascet = this.addToBascet.bind(this);
     this.removeFromBascet = this.removeFromBascet.bind(this);
