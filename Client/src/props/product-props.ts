@@ -1,9 +1,10 @@
 import IProductInfo from '../types/product-info';
 
-interface IProductItemProps{
-  isBasket: boolean;
+import IAppProps from './main-props';
+
+interface IProductProps extends IAppProps{
   value: IProductInfo;
   updateProducts: () => Promise<void>;
 }
 
-export default IProductItemProps;
+export default IProductProps;

@@ -4,41 +4,48 @@ import { autobind } from 'core-decorators';
 import { getProductsByCategory, getUserBasket } from './api';
 import ProductItem from './product-item';
 import IProductInfo from './types/product-info';
-import IIsBasketAndCurrentCategoryProps from './props/basket-current-category-props';
+import IAppProps from './props/main-props';
 
 require('./app.css');
 
 @autobind
-class ProductList extends React.Component<IIsBasketAndCurrentCategoryProps, { products: Array<IProductInfo> }> {
-  constructor(props: IIsBasketAndCurrentCategoryProps) {
+class ProductList extends React.Component<IAppProps, { products: Array<IProductInfo> }> {
+  constructor(props: IAppProps) {
     super(props);
     this.state = { products: [] };
-    this.updateProducts = this.updateProducts.bind(this);
   }
-  public async componentWillReceiveProps(nextProps: { isBasket: boolean; currentCategory: string }) {
-    if (this.props.currentCategory !== nextProps.currentCategory ||
-      this.props.isBasket !== nextProps.isBasket) {
-      await this.updateProducts();
-    }
+  public async componentDidMount() {
+    await this.updateProducts();
   }
-  private async updateProducts() {
+  public async componentWillReceiveProps(nextProps: IAppProps) {
+    if (this.props.category !== nextProps.category || this.props.isBasket !== nextProps.isBasket)
+      await this.updateProducts(nextProps.isBasket, nextProps.category);
+  }
+  private async updateProducts(isBasket: boolean = this.props.isBasket, category: string | null = this.props.category) {
     try {
-      /* Почти вся эта функция - костыль если его убрать начинается дичь, вероятна из за асинхронности.*/
-      let products: Array<IProductInfo> = [];
-      const productsBasket = await getUserBasket();
-      const category: string = this.props.currentCategory ? this.props.currentCategory : 'Phone';
-      const productsStore = await getProductsByCategory(category);
-      products = this.props.isBasket ? productsBasket : productsStore;
-      this.setState({ products: products });
+      if (isBasket) {
+        const productsBasket = await getUserBasket();
+        this.setState({ products: productsBasket });
+      }
+      else {
+        if (category == null) {
+          this.setState({ products: [] });
+        }
+        else {
+          const categoryStr = category != null ? category : '';
+          const productsStore = await getProductsByCategory(categoryStr);
+          this.setState({ products: productsStore });
+        }
+      }
     }
     catch (error) {
       alert(error.message);
     }
   }
   public render(): React.ReactNode {
-    const listItems = this.state.products.map(p => <ProductItem key={p.Product.Id} value={p} isBasket={this.props.isBasket} updateProducts={this.updateProducts} />);
+    const listItems = this.state.products.map(p => <ProductItem key={p.Product.Id} value={p} isBasket={this.props.isBasket} category={this.props.category} updateProducts={this.updateProducts} />);
     return (
-      <div id="categories">
+      <div id='categories'>
         {listItems}
       </div>
     );

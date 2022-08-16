@@ -4,7 +4,7 @@ require('./app.css');
 
 function Footer() {
   return (
-    <div id="footer">
+    <div id='footer'>
       <p>Copyright © Trusoft.ru, 2022</p>
     </div>
   );

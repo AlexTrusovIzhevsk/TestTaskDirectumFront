@@ -1,16 +1,15 @@
-import * as React from 'react';
-
+import React from 'react';
 import { autobind } from 'core-decorators';
 
 import CategoryItem from './сategory-item';
 import { getCategories } from './api';
-import ICategoryChangeHandlerProps from './props/basket-category-props';
+import IHeaderProps from './props/header-props';
 
 require('./app.css');
 
 @autobind
-class CategoriesList extends React.Component<ICategoryChangeHandlerProps, {categories: Array<string>}> {
-  constructor(props: ICategoryChangeHandlerProps) {
+class CategoriesList extends React.Component<IHeaderProps, {categories: Array<string>}> {
+  constructor(props: IHeaderProps) {
     super(props);
     const categories: Array<string> = [];
     this.state = { categories: categories };
@@ -28,14 +27,12 @@ class CategoriesList extends React.Component<ICategoryChangeHandlerProps, {categ
     const listItems = this.state.categories.map(category =>
       <CategoryItem
         key={category}
-        value={category}
-        onCategoryChange={this.props.onCategoryChange}
+        category={category}
         isBasket={this.props.isBasket}
-        onLeaveFromBasket={this.props.onLeaveFromBasket}
       />
     );
     return (
-      <div id="categoriesList">
+      <div id='categoriesList'>
         <ul>
           {listItems}
         </ul>

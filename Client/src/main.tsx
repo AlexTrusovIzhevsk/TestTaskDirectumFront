@@ -1,32 +1,25 @@
 import * as React from 'react';
+import autobind from 'autobind-decorator';
 
 import ProductListMain from './product-list-main';
 import CategoriesList from './сategories-list';
-import IProductItemProps from './props/basket-props';
+import IAppProps from './props/main-props';
 
 require('./app.css');
 
-class Main extends React.Component<IProductItemProps, {category: string | null}> {
-  constructor(props: IProductItemProps) {
+@autobind
+class Main extends React.Component<IAppProps> {
+  constructor(props: IAppProps) {
     super(props);
-    this.state = { category: null };
-    this.onCategoryChange = this.onCategoryChange.bind(this);
-  }
-  private onCategoryChange(category: string) {
-    this.setState({ category: category });
   }
   public render(): React.ReactNode {
     return (
-      <div id="main">
-        <CategoriesList onCategoryChange={this.onCategoryChange} isBasket={this.props.isBasket} onLeaveFromBasket={this.props.onLeaveFromBasket} />
-        <ProductListMain
-          currentCategory={this.state.category}
-          isBasket={this.props.isBasket}
-        />
+      <div id='main'>
+        <CategoriesList isBasket={this.props.isBasket} />
+        <ProductListMain category={this.props.category} isBasket={this.props.isBasket} />
       </div>
     );
   }
 }
 
 export default Main;
-

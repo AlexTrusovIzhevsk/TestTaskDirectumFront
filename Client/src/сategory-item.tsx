@@ -1,23 +1,19 @@
-import * as React from 'react';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import autobind from 'autobind-decorator';
 
-import IBasketCategoryItemProps from './props/basket-category-item-props';
+import IMainProps from './props/main-props';
 
 require('./app.css');
 
-class CategoryItem extends React.Component<IBasketCategoryItemProps, {}> {
-  constructor(props: IBasketCategoryItemProps) {
+@autobind
+class CategoryItem extends React.Component<IMainProps, {}> {
+  constructor(props: IMainProps) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
-  }
-  private handleChange(e: {}) {
-    this.props.onCategoryChange(this.props.value);
-    if (this.props.isBasket) {
-      this.props.onLeaveFromBasket();
-    }
   }
   public render(): React.ReactNode {
     return (
-      <li><a onClick={this.handleChange}>{this.props.value}</a></li>
+      <NavLink to={this.props.category == null ? '/' : `/category/${this.props.category}`} >{this.props.category}</NavLink>
     );
   }
 }

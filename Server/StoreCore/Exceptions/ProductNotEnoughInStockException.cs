@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
 namespace Store.Exceptions
 {
@@ -11,8 +7,11 @@ namespace Store.Exceptions
   /// </summary>
   public class ProductNotEnoughInStockException : Exception
   {
-    public ProductNotEnoughInStockException(string message) : base(message)
-    {
-    }
+    /// <summary>
+    /// Конструктор.
+    /// </summary>
+    /// <param name="message">Сообщение.</param>
+    /// <param name="innerException">Внутренее исключение.</param>
+    public ProductNotEnoughInStockException(string message) : base(message) {  }
   }
 }

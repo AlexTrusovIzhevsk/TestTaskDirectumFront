@@ -1,30 +1,24 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import autobind from 'autobind-decorator';
 
 import ThemControl from './them-control';
-import IBasketContolHandler from './props/basket-item-props';
+import IHeaderProps from './props/header-props';
 
 require('./app.css');
 
-class HeaderControls extends React.Component<IBasketContolHandler> {
-  constructor(props: IBasketContolHandler) {
+@autobind
+class HeaderControls extends React.Component<IHeaderProps> {
+  constructor(props: IHeaderProps) {
     super(props);
-    this.onClick = this.onClick.bind(this);
-  }
-  private onClick() {
-    this.props.isBasket ?
-      this.props.onLeaveFromBasket() :
-      this.props.onGoToBasket();
   }
   public render(): React.ReactNode {
     return (
-      <div id="controls">
-        <a id="basketLink" href="#" onClick={this.onClick}>
-          {this.props.isBasket ? 'Выйти из корзины' : 'Войти в корзину'}
-        </a>
+      <div id='controls'>
+        <NavLink to={this.props.isBasket ? '/' : '/basket'} >{this.props.isBasket ? 'Выйти из корзины' : 'Войти в корзину'}</NavLink>
         <ThemControl />
       </div>
     );
   }
 }
-
 export default HeaderControls;

@@ -1,12 +1,12 @@
 import React from 'react';
 
 import ProductList from './product-list';
-import IIsBasketAndCurrentCategoryProps from './props/basket-current-category-props';
+import IAppProps from './props/main-props';
 
 require('./app.css');
 
-class ProductListMain extends React.Component<IIsBasketAndCurrentCategoryProps, {}> {
-  constructor(props: IIsBasketAndCurrentCategoryProps) {
+class ProductListMain extends React.Component<IAppProps> {
+  constructor(props: IAppProps) {
     super(props);
     this.state = {};
   }
@@ -14,10 +14,10 @@ class ProductListMain extends React.Component<IIsBasketAndCurrentCategoryProps, 
     return (
       <div id='productList'>
         <div className='contentLable'>{
-          this.props.isBasket ? 'Товары в Корзине' : this.props.currentCategory == null ? 'Выберите категорию' : `Товары магазина категории: ${this.props.currentCategory}`}
+          this.props.isBasket ? 'Товары в Корзине' : this.props.category == null ? 'Выберите категорию' : `Товары магазина категории: ${this.props.category}`}
         </div>
         <ProductList
-          currentCategory={this.props.currentCategory}
+          category={this.props.category}
           isBasket={this.props.isBasket}
         />
       </div>

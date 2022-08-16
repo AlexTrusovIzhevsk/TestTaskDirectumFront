@@ -1,4 +1,4 @@
-﻿using System.Web.Http;
+using System.Web.Http;
 using System.Web.Http.Routing.Constraints;
 
 namespace WebServer
@@ -7,9 +7,6 @@ namespace WebServer
   {
     public static void Register(HttpConfiguration config)
     {
-      // Web API configuration and services
-
-      // Web API routes
       config.MapHttpAttributeRoutes();
 
       config.Routes.MapHttpRoute(

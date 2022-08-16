@@ -8,7 +8,8 @@
       "locales",
       "node_modules",
       "**/*.js",
-      "**/*.d.ts"
+      "**/*.d.ts",
+	  "src/images"
     ]
   },
   "rules": {

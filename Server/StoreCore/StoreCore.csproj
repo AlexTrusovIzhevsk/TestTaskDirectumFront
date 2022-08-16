@@ -54,9 +54,9 @@
   <ItemGroup>
     <Compile Include="Exceptions\ProductNotEnoughInStockException.cs" />
     <Compile Include="Exceptions\ProductNotInStockException.cs" />
-    <Compile Include="Exceptions\ProductNotEnoughInCartException.cs" />
+    <Compile Include="Exceptions\ProductNotEnoughInBasketException.cs" />
     <Compile Include="Exceptions\StorageUnavailableException.cs" />
-    <Compile Include="Exceptions\ProductNotInCartException.cs" />
+    <Compile Include="Exceptions\ProductNotInBasketException.cs" />
     <Compile Include="Model\ProductBasket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\Category.cs" />

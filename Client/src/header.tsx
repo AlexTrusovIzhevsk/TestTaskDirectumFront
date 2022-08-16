@@ -1,13 +1,13 @@
 import React from 'react';
 
 import HeaderControls from './header-controls';
-import IBasketContolHandler from './props/basket-item-props';
-import storeLogo from './logo.png';
+import storeLogo from './images/logo.png';
+import IHeaderProps from './props/header-props';
 
 require('./app.css');
 
-class Header extends React.Component<IBasketContolHandler,{}> {
-  constructor(props: IBasketContolHandler) {
+class Header extends React.Component<IHeaderProps,{}> {
+  constructor(props: IHeaderProps) {
     super(props);
     this.state = {};
   }
@@ -17,7 +17,7 @@ class Header extends React.Component<IBasketContolHandler,{}> {
         <div id='header'>
           <StoreLogo />
           <Title />
-          <HeaderControls isBasket={this.props.isBasket} onGoToBasket={this.props.onGoToBasket} onLeaveFromBasket={this.props.onLeaveFromBasket} />
+          <HeaderControls isBasket={this.props.isBasket} />
         </div>
       </React.Fragment>
     );
@@ -27,7 +27,7 @@ class Header extends React.Component<IBasketContolHandler,{}> {
 function StoreLogo() {
   return (
     <React.Fragment>
-      <img id="StoreLogo" src={storeLogo} alt="Здесь будет Лого" />
+      <img id='StoreLogo' src={storeLogo} alt='Здесь будет Лого' />
     </React.Fragment>
   );
 }
@@ -35,7 +35,7 @@ function StoreLogo() {
 function Title() {
   return (
     <React.Fragment>
-      <div id="title">Компьютерная техника</div>
+      <div id='title'>Компьютерная техника</div>
     </React.Fragment>
   );
 }

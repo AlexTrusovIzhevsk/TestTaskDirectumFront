@@ -75,7 +75,10 @@ module.exports = (env, argv) => {
       assets: false,
       children: false,
       warningsFilter: []
-    }
+    },
+    devServer: {
+	  historyApiFallback: true,
+    },
   };
 };
 

@@ -3,15 +3,15 @@ using System;
 namespace Store.Exceptions
 {
   /// <summary>
-  /// Ошибка отсутствия товара на складе.
+  /// Ошибка отсутствия товара в корзине.
   /// </summary>
-  public class ProductNotInStockException : Exception
+  public class ProductNotInBasketException : Exception
   {
     /// <summary>
     /// Конструктор.
     /// </summary>
     /// <param name="message">Сообщение.</param>
     /// <param name="innerException">Внутренее исключение.</param>
-    public ProductNotInStockException(string message) : base(message) {  }
+    public ProductNotInBasketException(string message) : base(message) { }
   }
 }

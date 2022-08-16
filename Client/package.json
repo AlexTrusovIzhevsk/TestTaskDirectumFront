@@ -85,6 +85,8 @@
   "dependencies": {
     "@babel/polyfill": "7.0.0",
     "@babel/runtime": "7.0.0",
+    "@testing-library/react": "^12.1.5",
+    "autobind-decorator": "^2.4.0",
     "bem-cn-lite": "3.0.0",
     "core-decorators": "0.20.0",
     "flow": "^0.2.3",
@@ -93,7 +95,7 @@
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-router": "6.2.1",
-    "react-router-dom": "6.2.1",
+    "react-router-dom": "^6.2.1",
     "ts-loader": "6.0.4",
     "typescript": "3.9.3",
     "whatwg-fetch": "2.0.4"

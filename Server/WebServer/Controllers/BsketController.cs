@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -10,10 +10,20 @@ using StoreCore.Storages.ProductStorages;
 
 namespace WebServer.Controllers
 {
+  /// <summary>
+  /// Контроллер корзины.
+  /// </summary>
   public class BasketController : ApiController
   {
+
+    /// <summary>
+    /// Хранилище данных о корзине.
+    /// </summary>
     IProductStorage storeStorage = new StoreStorage();
-    
+
+    /// <summary>
+    /// Получить список продуктов в корзине пользователя.
+    /// </summary>
     [HttpGet]
     [ActionName("list")]
     public Array GetUserBasket()
@@ -22,6 +32,11 @@ namespace WebServer.Controllers
       return basketStorage.GetProducts(p => true).ToArray();
     }
 
+    /// <summary>
+    /// Положить продукт в козрину пользователя.
+    /// </summary>
+    /// <param name="productId">Идентификатор продукта.</param>
+    /// <param name="count">Количество продуктов.</param>
     [HttpPut]
     [ActionName("addProductToBasket")]
     public HttpResponseMessage PutProductToUserBasket(Guid productId, int count)
@@ -30,7 +45,7 @@ namespace WebServer.Controllers
       {
         var basketStorage = new BasketStorage();
 
-        var product = storeStorage.FirstOrDefaultProduct(productId);
+        var product = this.storeStorage.FirstOrDefaultProduct(productId);
         if (product is null)
           throw new ProductNotInStockException($"Product with id {productId} does not exist. ");
         if (product.Count < count)
@@ -39,7 +54,7 @@ namespace WebServer.Controllers
         var productBasket = basketStorage.FirstOrDefaultProduct(productId);
         if (productBasket is null)
         {
-          productBasket = new ProductBasket(product.Product, basketStorage.CreateUser(), count);
+          productBasket = new ProductBasket(product.Product, basketStorage.CreateDefaultUser(), count);
           basketStorage.AddProduct(productBasket);
         }
         else
@@ -49,7 +64,7 @@ namespace WebServer.Controllers
 
         product.Count -= count;
         if (product.Count == 0)
-          storeStorage.RemoveProduct(product);
+          this.storeStorage.RemoveProduct(product);
 
         return new HttpResponseMessage(HttpStatusCode.OK);
       }
@@ -62,6 +77,11 @@ namespace WebServer.Controllers
       }
     }
 
+    /// <summary>
+    /// Изъять продукт из козрины пользователя.
+    /// </summary>
+    /// <param name="productId">Идентификатор продукта.</param>
+    /// <param name="count">Количество продуктов.</param>
     [HttpDelete]
     [ActionName("removeProductFromBasket")]
     public HttpResponseMessage TakeProductFromUserBasket(Guid productId, int count)
@@ -72,15 +92,15 @@ namespace WebServer.Controllers
         
         var productBasket = basketStorage.FirstOrDefaultProduct(productId);
         if (productBasket is null)
-          throw new ProductNotInStockException($"Product with id {productId} does not exist in user basket.");
+          throw new ProductNotInBasketException($"Product with id {productId} does not exist in user basket.");
         if (productBasket.Count < count)
-          throw new ProductNotEnoughInStockException($"Product with id {productId} is not enough in user basket.");
+          throw new ProductNotEnoughInBasketException($"Product with id {productId} is not enough in user basket.");
 
-        var storeBasket = storeStorage.FirstOrDefaultProduct(productId);
+        var storeBasket = this.storeStorage.FirstOrDefaultProduct(productId);
         if (storeBasket is null)
         {
           storeBasket = new ProductBasket(productBasket.Product, null, count);
-          storeStorage.AddProduct(storeBasket);
+          this.storeStorage.AddProduct(storeBasket);
         }
         else
         {

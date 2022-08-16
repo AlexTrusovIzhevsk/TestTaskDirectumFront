@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { render } from 'react-dom';
 
-import App from './app';
+import RouterApp from './router-app';
 
 require('./app.css');
 
 document.documentElement.setAttribute('theme', 'white');
 
 render(
-  <App />,
+  <RouterApp />,
   document.getElementById('root')
 );
